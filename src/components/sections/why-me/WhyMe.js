@@ -1,17 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./WhyMe.css";
 import SectionHeader from "../section-header/SectionHeader";
 import CustomButton from "../../../components/elements/custom-button/CustomButton";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const WhyMe = () => {
   const imageUrl = "images/me/profile2.jpeg";
   const title = "Hi, I'm Swami.";
 
+  // Animation control setup
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.1 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [controls, inView]);
+
+  // Animation variants
+  const variants = {
+    hidden: { opacity: 0, y: 20, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 1 },
+    },
+  };
+
   return (
-    <div className="py-20 rounded-lg shadow-lg relative border">
+    <motion.div className="py-20 rounded-lg shadow-lg relative border" ref={ref} initial="hidden" animate={controls} variants={variants}>
       <div className="absolute inset-x-0 top-1/2 -z-10 -translate-y-1/2 transform-gpu overflow-hidden opacity-30 blur-3xl" aria-hidden="true">
         <div
-          className="ml-[max(50%,38rem)] aspect-[1313/771] w-[82.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc]"
+          className="ml-[max(50%,38rem)] aspect-[1313/771] w-[82.0625rem] bg-gradient-to-tr from-[rgb(198,208,235)] to-[#d3d2ea]"
           style={{
             clipPath: "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
           }}
@@ -19,7 +44,7 @@ const WhyMe = () => {
       </div>
       <div className="absolute inset-x-0 top-0 -z-10 flex transform-gpu overflow-hidden pt-32 opacity-25 blur-3xl sm:pt-40 xl:justify-end" aria-hidden="true">
         <div
-          className="ml-[-22rem] aspect-[1313/771] w-[82.0625rem] flex-none origin-top-right rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] xl:ml-0 xl:mr-[calc(50%-12rem)]"
+          className="ml-[-22rem] aspect-[1313/771] w-[82.0625rem] flex-none origin-top-right rotate-[30deg] bg-gradient-to-tr from-[#e7e9ee] to-[#e0dfee] xl:ml-0 xl:mr-[calc(50%-12rem)]"
           style={{
             clipPath: "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
           }}
@@ -44,19 +69,16 @@ const WhyMe = () => {
           <div className="mt-4 lg:mt-0 lg:flex-1 text-left">
             <h3 className="text-2xl font-semibold mt-2">{title}</h3>
             <p className="mt-7">I'm the designer behind the airport kiosk for US Airways (now American Airlines), used by millions of passengers.</p>
-
             <p>
               20 years ago, I started my career as an animator for PBS News. I've since built hundreds of web apps for Fortune 500 companies, government, startups, banks, hospitals, and universities. I created one of the world's first mobile apps, which won a U.S. Nationals award from Microsoft.
             </p>
-
             <p>I have three partners who are world-class engineers in frontend, backend, and devops. Together with my unusual skillset as a UX designer + frontend engineer, we build products with a finesse seldom found in the industry.</p>
             <p>We are a dynamic and efficient team, intentionally small, and you'll find we're nice people to work with. </p>
           </div>
         </div>
       </div>
-
       <CustomButton label="Send me a message" sectionId="#contact" />
-    </div>
+    </motion.div>
   );
 };
 
