@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className="mx-auto p-24 pt-20 border-t">
       <div>
-        <span className="font-medium mx-2">© 2024 Svenka Studios</span>
+        <span className="font-medium mx-2">© 2024 Svenka Studio</span>
         <a className="cursor-pointer hover:underline mx-2 text-gray-700" onClick={(e) => scrollToSection(e, "#whyus")}>
           About
         </a>
@@ -23,7 +23,7 @@ const Footer = () => {
           Portfolio
         </a>
       </div>
-      <div className="text-xs mt-2 text-gray-600">Designed by Svenka Studios</div>
+      <div className="text-xs mt-2 text-gray-600">Designed by Svenka Studio</div>
     </footer>
   );
 };

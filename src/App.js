@@ -19,7 +19,7 @@ function App() {
             path="/"
             element={
               <>
-                <Header options={{ showLogo: false }} />
+                <Header options={{ showLogo: false, mode: "light" }} />
                 <Home />
               </>
             }

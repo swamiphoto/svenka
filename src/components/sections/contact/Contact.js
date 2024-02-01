@@ -51,34 +51,41 @@ const Contact = () => {
 
   return (
     <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-      <SectionHeader title="Get in touch" description="" />
+      <SectionHeader title="Start a project" description="" />
       <form ref={formRef} onSubmit={handleSubmit} action="" className="mx-auto mt-8 max-w-lg space-y-4">
         <div>
           <label htmlFor="name" className="sr-only">
-            Name
+            Your Name
           </label>
-          <input type="text" id="name" placeholder="Name" className="input" />
+          <input type="text" id="name" placeholder="Your name" className="input" />
+        </div>
+
+        <div>
+          <label htmlFor="name" className="sr-only">
+            Company name
+          </label>
+          <input type="text" id="name" placeholder="Company name" className="input" />
         </div>
 
         <div>
           <label htmlFor="email" className="sr-only">
             Email
           </label>
-          <input type="email" id="email" placeholder="Email" className="input" />
+          <input type="email" id="email" placeholder="Email address" className="input" />
         </div>
 
         <div>
           <label htmlFor="phone" className="sr-only">
-            Phone Number
+            Phone number
           </label>
-          <input type="tel" id="phone" placeholder="Phone Number" className="input" />
+          <input type="tel" id="phone" placeholder="Phone number" className="input" />
         </div>
 
         <div>
           <label htmlFor="message" className="sr-only">
-            Briefly describe your project
+            Briefly tell us about your project...
           </label>
-          <textarea id="message" placeholder="Briefly describe your project" rows="4" className="input"></textarea>
+          <textarea id="message" placeholder="Briefly tell us about your project..." rows="4" className="input"></textarea>
         </div>
 
         {/* <button type="submit" className="inline-block w-full rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white">

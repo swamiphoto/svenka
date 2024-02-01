@@ -12,6 +12,7 @@ import Contact from "../../components/sections/contact/Contact";
 import Section from "../../components/elements/section/Section";
 import { useLocation } from "react-router-dom";
 import CustomButton from "../../components/elements/custom-button/CustomButton";
+import { Header } from "antd/es/layout/layout";
 
 const Home = () => {
   const location = useLocation();
@@ -35,7 +36,9 @@ const Home = () => {
     <main className="max-w-7xl mx-auto px-6 md:px-0">
       <Hero />
       <div className="h-screen"></div>
-      <Logos />
+      <Section id="brands">
+        <Logos />
+      </Section>
       <Section id="whyus">
         <WhyMe />
       </Section>

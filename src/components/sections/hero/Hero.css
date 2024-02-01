@@ -1,22 +1,8 @@
-@keyframes gradientBackground {
-  0% {
-    background-color: #000000; /* Black */
-  }
-  25% {
-    background-color: blue; /* Dark Gray */
-  }
-  50% {
-    background-color: purple; /* Darker Gray */
-  }
-  75% {
-    background-color: red; /* Even Darker Gray */
-  }
-  100% {
-    background-color: violet; /* Black */
-  }
-}
-
-.animated-background {
-  animation: gradientBackground 10s ease infinite;
-  background-size: cover;
+.hero {
+  background: linear-gradient(180deg, #f9f9fe 0%, #f9f9fe 50%, #eeeef5 100%);
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
