@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qtr-ai-landing
+  
+ 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qtr-ai-landing
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: qtr-ai-landing
+    spec:
+    
+      containers:
+        - name: qtr-ai-landing-container
+          image: gcr.io/*********/qtr-ai-landing:e8cf2a8
+          ports:
+            - containerPort: 80
+              protocol: TCP
+         
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: qtr-ai-landing-svc
+ 
+ 
+spec:
+  ports:
+    - name: qtr-ai-landing-svc-port
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: qtr-ai-landing
+  

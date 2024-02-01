@@ -1,0 +1,5 @@
+.tech-card {
+  @apply flex justify-center items-center m-2 border border-gray-200 rounded-lg text-xl font-medium text-gray-700 font-geist-mono;
+  padding: 15px 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
